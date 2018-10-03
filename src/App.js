@@ -50,18 +50,32 @@ class App extends Component {
   renderCard(item) {
     return (
       <Card key={item.id} title={item.text} image={{ uri: item.uri }}>
-        <Text style={{ marginBottom: 10 }}> Customize </Text>
+        <Text style={{ marginBottom: 10 }}>Card.</Text>
         <Button
           icon={{ name: "code" }}
           backgroundColor="#03A9F4"
-          title="View now"
+          title="View Now!"
         />
+      </Card>
+    );
+  }
+  renderNoMoreCards() {
+    return (
+      <Card title="All Done!">
+        <Text style={{ marginBottom: 10 }}>No more content!</Text>
+        <Button title="Get More!" backgroundColor="#03A9F4" />
       </Card>
     );
   }
 
   render() {
-    return <Deck data={DATA} renderCard={this.renderCard} />;
+    return (
+      <Deck
+        data={DATA}
+        renderCard={this.renderCard}
+        renderNoMoreCards={this.renderNoMoreCards}
+      />
+    );
   }
 }
 
